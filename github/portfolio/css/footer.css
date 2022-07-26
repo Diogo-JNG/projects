@@ -1,0 +1,31 @@
+.footer{
+    background-color: black;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+}
+.footer__list{
+    margin:15px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.footer__item{
+    margin-left:10px ;
+    font-size: 20px;
+}
+.footer__main{
+    font-size: 80px;
+}
+.footer__icon{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.footer__list a{
+    text-decoration: none;
+    color: white;
+}
