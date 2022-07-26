@@ -28,6 +28,10 @@ header{
 .header__item a{
     text-decoration: none;
     color: white;
+    transition: 250ms;
+}
+.header__item a:hover{
+    opacity: .6 ;
 }
 .header__logo{
     display: flex;

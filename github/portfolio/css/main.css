@@ -18,18 +18,32 @@ body{
 
 }
 .container__sections{
-    background-color: rgb(148, 148, 243);
+    background-color: #c3c3c3;
     justify-content: space-around;
     margin: -4px auto;
 }
 .container__section{
     display: flex;
+    max-height: 400px;
+    min-height: 400px;
+}
+.section__image{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.section__photo{
+    margin: 0 auto;
+    font-size: 300px;
 }
 .section__info{
-    color: white;
+    color: black;
     display: flex;
+    width: 50%;
     flex-direction: column;
-    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    align-self: center;
 }
 .section__title{
     align-self: center;
@@ -39,23 +53,35 @@ body{
     text-align: center;
     font-size: 25px;
 }
+.section__info hr{
+    margin-top: 10px;
+}
 .section__button{
-    align-self: flex-end;
-    margin-right: 20px;
+    align-self: center;
+    margin-top: 20px;
     padding: 10px;
     background: transparent;
-    background-color: orangered;
+    background-color: black;
     border-radius: 25px;
     color: white;
+    transition: 250ms;
+    cursor: pointer;
+}
+.section__button:hover{
+    padding: 20px;
 }
 .section__button button{
     font-size: 17px;
     background: transparent;
+    cursor: pointer;
     border: 0;
     color: white;
-    cursor: pointer;
+}
+.section__button:hover button{
+    color: darkgoldenrod;
 }
 .section__paragraph{
     font-size: 20px;
     font-style: italic;
+    margin-left: 40px;
 }
