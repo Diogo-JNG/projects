@@ -9,13 +9,32 @@ body{
 .container{
     width: 100%;
 }
+.container__slider{
+    position: relative;
+}
 .container__slider img{
     object-fit: cover;
     width: 100%;
     aspect-ratio: 21/9;
 }
-.container__slider{
-
+.slider__left, .slider__right{
+    font-size: 45px;
+    position: absolute;
+    top: 40%;
+    border-radius: 45px;
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+    cursor: pointer;
+}
+.slider__left:hover, .slider__right:hover{
+    opacity: .6;
+}
+.slider__left{
+    left: 25px;
+}
+.slider__right{
+    right: 25px;
 }
 .container__sections{
     background-color: #c3c3c3;
@@ -84,4 +103,7 @@ body{
     font-size: 20px;
     font-style: italic;
     margin-left: 40px;
+}
+a:hover{
+    opacity: .6;
 }

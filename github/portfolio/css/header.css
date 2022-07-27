@@ -5,6 +5,8 @@ header{
     position: fixed;
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0),rgba(0, 0, 0, 0.2));
+    z-index: 999;
+    padding: 55px 0;
 }
 .header__nav{
     display: flex;
@@ -29,9 +31,6 @@ header{
     text-decoration: none;
     color: white;
     transition: 250ms;
-}
-.header__item a:hover{
-    opacity: .6 ;
 }
 .header__logo{
     display: flex;
