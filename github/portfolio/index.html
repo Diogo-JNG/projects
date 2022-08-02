@@ -14,10 +14,12 @@
 
 <body>
     <header>
-        <i class="header__logo icofont-image"></i>
+        <a href="index.html" class="header__logo">
+            <img class="header__logo" src="./assets/logo_diogo_preto_RGB.jpg" alt="logo">
+        </a>
         <nav class="header__nav">
             <ul class="header__list">
-                <li class="header__item"><a href="#">About Me</a></li>
+                <li class="header__item"><a href="aboutme.html">About Me</a></li>
                 <li class="header__item"><a href="#">Contact</a></li>
                 <li class="header__item"><a href="#">CV</a></li>
             </ul>
@@ -25,15 +27,14 @@
     </header>
     <main>
         <div class="container">
-            <div class="container__slider">
-                <button class="slider__left"><i class="icofont-arrow-left"></i></button>
-                <button class="slider__right"><i class="icofont-arrow-right"></i></button>
-                <img class="slider__image" src="assets/computer.jpg" alt="game-image">
+            <div class="container__images">
+                <img class="slider__image" src="assets/flag.png" alt="game-image">
+                <img class="slider__image" src="assets/udemy.png" alt="game-image">
             </div>
             <section class="container__sections">
                 <div class="container__section">
                     <div class="section__image">
-                        <img class="section__photo" width="400" height="400" src="assets/avatar.png" alt="">
+                        <img class="section__photo" width="400" height="400" src="assets/curriculum_picture.jpg" alt="">
                     </div>
                     <div class="section__info">
                         <h2 class="section__title">Who Am I?</h2>
@@ -44,10 +45,11 @@
                     </div>
                 </div>
                 <hr>
-                <div class="container__section">
+                <div class="container__section container__special">
                     <div class="section__info">
                         <h2 class="section__title">Contact me!</h2>
-                        <p class="section__description">Feel free to contact me so we can have a chat, who knows, <br> maybe I am who you are looking for.</p>
+                        <p class="section__description">Feel free to contact me so we can have a chat, who knows, <br>
+                            maybe I am who you are looking for.</p>
                         <span class="section__button"><button>MY CONTACTS</button></span>
                     </div>
                     <div class="section__image">
@@ -61,7 +63,8 @@
                     </div>
                     <div class="section__info">
                         <h2 class="section__title">CV</h2>
-                        <p class="section__description">Here's my Curriculum Vitae if you feel like checking out <br> my personal information with more detail.</p>
+                        <p class="section__description">Here's my Curriculum Vitae if you feel like checking out <br> my
+                            personal information with more detail.</p>
                         <span class="section__button"><button>MORE INFO</button></span>
                     </div>
                 </div>
@@ -71,18 +74,22 @@
     <footer>
         <div class="footer">
             <ul class="footer__list">
-                <li class="footer__main"><i class="icofont-image"></i></li>
+                <li class="footer__main"><img src="./assets/logo_diogo_preto_RGB.jpg" width="100px" alt="logo"></li>
             </ul>
             <ul class="footer__list">
-                <li class="footer__item footer__link"><a href="#">About Me</a></li>
+                <li class="footer__item footer__link"><a href="aboutme.html">About Me</a></li>
+                <li class="footer__item">|</li>
                 <li class="footer__item footer__link"><a href="#">Contact</a></li>
+                <li class="footer__item footer__link">|</li>
                 <li class="footer__item footer__link"><a href="#">CV</a></li>
             </ul>
             <ul class="footer__list">
                 <li class="footer__icon"><a href="https://github.com/Diogo-JNG/projects" target="_blank"><i class="icofont-github"></i></a></li>
+                <li class="footer__icon"><a href="https://www.credly.com/users/diogo-guimaraes.5642f1de/badges" target="_blank"><i class="icofont-badge"></i></a></li>
             </ul>
         </div>
     </footer>
 </body>
+<script src="./js/main.js"></script>
 
 </html>
