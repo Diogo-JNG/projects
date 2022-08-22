@@ -1,0 +1,54 @@
+header{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(26, 25, 25, .9);
+}
+.main__icon{
+    color: red;
+    padding-left: 5px;
+}
+header i{
+    color: white;
+}
+.header__left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20vw;
+    padding-left: 20px;
+}
+.header__left h1{
+    font-size: 40px;
+    padding-left: 15px;
+    color: white;
+}
+.header__center{
+    display: flex;
+    align-items: center;
+    width: 50vw;
+
+}
+.header__center i{
+    background-color: gray;
+    padding: 8px 20px;
+}
+.header__right{
+    display: flex;
+    justify-content: flex-end;
+    width: 20vw;
+    padding-right: 40px;
+}
+.header__right i{
+    padding-left: 10px;
+}
+.header__searchBar{
+    width: 45vw;
+    height: 40px;
+    border: none;
+    font-size: 25px;
+}
