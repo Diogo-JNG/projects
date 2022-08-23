@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-i{
+i, .main__title{
     cursor: pointer;
 }
 body{
@@ -14,6 +14,9 @@ main{
     height: 100%;
     padding-top: 10vh;
     padding-left: 10vw;
+}
+.main__solo{
+    padding-left: 0vw;
 }
 .video__list{
     display: grid;
@@ -45,4 +48,36 @@ main{
     height: 200px;
     width: 300px;
     background-size: 100% 100%;
+}
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1800px) {
+    main{
+        padding-left: 0vw;
+    }
+    
+}
+@media only screen and (max-width: 1400px) {
+    .video__list{
+        grid-template-columns: repeat(4,1fr);
+    }
+    
+}
+@media only screen and (max-width: 1200px) {
+    .video__list{
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+}
+@media only screen and (max-width: 1000px) {
+    .video__list{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+@media only screen and (max-width: 600px) {
+    .video__list{
+        grid-template-columns: 1fr;
+    }
+    
 }
