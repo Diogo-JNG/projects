@@ -21,6 +21,7 @@ aside hr{
     justify-content: center;
     background-color: rgba(26, 25, 25, .9);
     height: 40px;
+    transition: 250ms;
 }
 .aside__options i{
     position: absolute;
@@ -40,8 +41,3 @@ aside hr{
 }
 
 /* RESPONSIVE */
-
-@media only screen and (max-width: 1800px) {
-    aside{
-    }
-}

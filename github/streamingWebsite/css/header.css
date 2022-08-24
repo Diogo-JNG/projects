@@ -80,9 +80,6 @@ header i{
         width: 200px;
     }
     @media only screen and (max-width: 800px) {
-        header{
-            justify-content: flex-start;
-        }
         .header__left h1{
             font-size: 20px;
         }
@@ -101,11 +98,20 @@ header i{
         .header__center input{
             width: 200px;
         }
+        .main__icon{
+            padding-right: 15px;
+        }
         
     }
     @media only screen and (max-width: 530px) {
         .header__center input{
             width: 100px;
+        }
+        
+    }
+    @media only screen and (max-width: 400px) {
+        .header__center input{
+            width: 50px;
         }
         
     }
