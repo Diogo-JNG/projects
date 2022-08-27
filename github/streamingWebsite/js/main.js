@@ -1,7 +1,23 @@
 const burguerMenu = document.querySelector('.main__menu');
 const aside = document.getElementById('aside');
 const main = document.getElementById('main');
-console.log(burguerMenu);
+let videoThumb = document.querySelectorAll('.video__pre');
+
+// videoThumb.addEventListener('mouseover', () => {
+//    videoThumb.play();
+//});
+videoThumb.forEach((e) => {
+    e.addEventListener('mouseenter', () => {
+        e.play();
+    } );
+  });
+
+  videoThumb.forEach((e) => {
+    e.addEventListener('mouseout', () => {
+        e.currentTime = 0;
+        e.pause();
+    } );
+  });
 
 burguerMenu.addEventListener('click', menuToggle);
 

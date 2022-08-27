@@ -41,7 +41,7 @@ header i{
     display: flex;
     justify-content: flex-end;
     width: 20vw;
-    padding-right: 40px;
+    margin-right: 40px;
 }
 .header__right i{
     padding-left: 10px;
@@ -51,6 +51,7 @@ header i{
     height: 40px;
     border: none;
     font-size: 25px;
+    margin-left: 10px;
 }
 @media only screen and (max-width: 1200px) {
     .header__left{
@@ -96,7 +97,7 @@ header i{
     }
     @media only screen and (max-width: 600px) {
         .header__center input{
-            width: 200px;
+            width: 150px;
         }
         .main__icon{
             padding-right: 15px;
@@ -105,13 +106,13 @@ header i{
     }
     @media only screen and (max-width: 530px) {
         .header__center input{
-            width: 100px;
+            width: 80px;
         }
         
     }
     @media only screen and (max-width: 400px) {
         .header__center input{
-            width: 50px;
+            width: 40px;
         }
         
     }

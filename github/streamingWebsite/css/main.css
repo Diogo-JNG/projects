@@ -53,6 +53,24 @@ main{
     width: 300px;
     background-size: 100% 100%;
 }
+.video__pre{
+    height: 200px;
+    width: 300px;
+    background-size: 100% 100%;
+}
+/* Recommended Tab */
+
+.recommend__tab{
+    background-color: rgb(255, 174, 0);
+    padding: 5px 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.recommend__tab p{
+    font-size: 25px;
+    margin-left: 15px;
+}
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1800px) {
