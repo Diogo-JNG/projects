@@ -60,11 +60,12 @@ main{
 /* Recommended Tab */
 
 .recommend__tab{
+    display: grid;
+    grid-column: 1 / span 5;
     background-color: rgb(255, 174, 0);
     padding: 5px 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
+    width: 99%;
+    margin: 0 auto;
 }
 .recommend__tab p{
     font-size: 25px;
@@ -82,11 +83,17 @@ main{
     .video__list{
         grid-template-columns: repeat(4,1fr);
     }
+    .recommend__tab{
+        grid-column: 1 / span 4;
+    }
     
 }
 @media only screen and (max-width: 1200px) {
     .video__list{
         grid-template-columns: repeat(3,1fr);
+    }
+    .recommend__tab{
+        grid-column: 1 / span 3;
     }
     
 }
@@ -94,11 +101,18 @@ main{
     .video__list{
         grid-template-columns: repeat(2,1fr);
     }
+    .recommend__tab{
+        grid-column: 1 / span 2;
+    }
     
 }
 @media only screen and (max-width: 600px) {
     .video__list{
         grid-template-columns: 1fr;
+    }
+    .recommend__tab{
+        grid-column: 1;
+        text-align: center;
     }
     
 }

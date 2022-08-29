@@ -1,4 +1,5 @@
 header{
+    z-index: 100;
     display: flex;
     position: fixed;
     align-items: center;
@@ -53,6 +54,25 @@ header i{
     font-size: 25px;
     margin-left: 10px;
 }
+.header__minisearchBar{
+    position: absolute;
+    width: 74vw;
+    height: 20px;
+    left: 10vw;
+    bottom: 2px;
+}
+.header__mini{
+    display: none;
+}
+.mini__search{
+    display: none;
+    position: absolute;
+    width: 10vw;
+    text-align: center;
+    font-size: 21px;
+    right: 7vw;
+    bottom: 2px;
+}
 @media only screen and (max-width: 1200px) {
     .header__left{
         width: 10vw;
@@ -71,7 +91,7 @@ header i{
         width: 200px;
     }
     .header__center{
-        width: 200px;
+        width: 300px;
     
     }
     .header__left h1{
@@ -86,7 +106,7 @@ header i{
         }
         .header__center input{
             height: 30px;
-            width: 200px;
+            width: 600px;
             font-size: 15px;
         }
         .header__center i{
@@ -97,7 +117,7 @@ header i{
     }
     @media only screen and (max-width: 600px) {
         .header__center input{
-            width: 150px;
+            width: 400px;
         }
         .main__icon{
             padding-right: 15px;
@@ -106,13 +126,35 @@ header i{
     }
     @media only screen and (max-width: 530px) {
         .header__center input{
-            width: 80px;
+            width: 120px;
         }
         
     }
     @media only screen and (max-width: 400px) {
-        .header__center input{
-            width: 40px;
+        .header__center{
+            display: none;
+        }
+        .mini__search{
+            display: block;
+        }
+        .header__mini{
+            display: block;
+        }
+        .header__searchBar, .normal__search{
+            display: none;
+        }
+        .header__right{
+            width: 50vw;
+            justify-content: center;
+            margin-right:20px;
+        }
+        .header__left{
+            width: 50vw;
+            justify-content: center;
+            margin-left: 20px;
+        }
+        .recommend__tab p{
+            font-size: 22px;
         }
         
     }

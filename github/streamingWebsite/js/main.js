@@ -22,3 +22,7 @@ function menuToggle() {
   main.classList.toggle('main__solo');
   aside.classList.toggle('aside__hidden');
 }
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  menuToggle();
+ }

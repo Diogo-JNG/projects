@@ -1,4 +1,7 @@
 aside{
+    z-index: 100;
+    transform: translateX(0);
+    transition: 250ms;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -8,7 +11,7 @@ aside{
     background-color: rgba(26, 25, 25, .9);
 }
 .aside__hidden{
-    display: none;
+    transform: translateX(-100%);
 }
 aside hr{
     background-color: gray;
