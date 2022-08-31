@@ -81,7 +81,7 @@ main{
     color: white;
 }
 .video__modal{
-    position: absolute;
+    position: fixed;
     display: none;
     align-items: center;
     justify-content: center;
@@ -89,7 +89,7 @@ main{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
 }
 .video__modal__visible{
