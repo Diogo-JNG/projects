@@ -11,7 +11,7 @@ header{
 }
 .main__icon{
     color: red;
-    padding-left: 5px;
+    margin-left: 5px;
     font-size: 35px;
 }
 header i{
@@ -45,7 +45,7 @@ header i{
     margin-right: 40px;
 }
 .header__right i{
-    padding-left: 10px;
+    margin-left: 10px;
 }
 .header__searchBar{
     width: 80%;
@@ -56,22 +56,24 @@ header i{
 }
 .header__minisearchBar{
     position: absolute;
-    width: 74vw;
+    width: 57vw;
     height: 20px;
-    left: 10vw;
-    bottom: 2px;
+    left: 0px;
 }
 .header__mini{
     display: none;
+    width: 64vw;
+    height: 20px;
+    position: absolute;
+    bottom: 3px;
+    left: 60px;
 }
 .mini__search{
     display: none;
     position: absolute;
-    width: 10vw;
     text-align: center;
     font-size: 21px;
-    right: 7vw;
-    bottom: 2px;
+    right: 0px;
 }
 @media only screen and (max-width: 1200px) {
     .header__left{
@@ -130,7 +132,7 @@ header i{
         }
         
     }
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 500px) {
         .header__center{
             display: none;
         }
@@ -138,7 +140,7 @@ header i{
             display: block;
         }
         .header__mini{
-            display: block;
+            display: flex;
         }
         .header__searchBar, .normal__search{
             display: none;
@@ -155,6 +157,10 @@ header i{
         }
         .recommend__tab p{
             font-size: 22px;
+        }
+        .aside__options p{
+            font-size: 18px;
+            
         }
         
     }
