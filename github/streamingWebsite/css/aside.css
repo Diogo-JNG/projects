@@ -28,7 +28,7 @@ aside{
     z-index: 99;
     transform: translateX(100%);
     right: 1px;
-    top:200px;
+    top:0px;
     margin-top: 10vh;
     transition: 250ms;
     position: fixed;
@@ -101,6 +101,9 @@ aside hr{
     position: absolute;
     left: 10px;
     top: 5;
+}
+.aside__options p{
+    font-size: 18px;
 }
 .aside__options:hover{
     background-color: gray;

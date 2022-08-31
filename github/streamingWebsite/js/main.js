@@ -135,6 +135,31 @@ videoThumb.forEach((e) => {
   });
 });
 
+// Modal Videos
+
+const videoModal = document.querySelector('.video__modal');
+const videoClose = document.querySelector('.video__modal i');
+
+videoThumb.forEach((e) => { e.addEventListener('click', openVideo)});
+videoClose.addEventListener('click', modalClose);
+
+function openVideo(e){
+  let videoToCopy = e.srcElement.src;
+  let newVideoBox = document.createElement('video');
+  newVideoBox.setAttribute('controls', 'controls');
+  newVideoBox.src = videoToCopy;
+  videoModal.classList.toggle('video__modal__visible');
+  videoModal.append(newVideoBox);
+};
+
+function modalClose(){
+  const videoBox = document.querySelector('.video__modal video');
+  videoBox.remove();
+  videoModal.classList.toggle('video__modal__visible');
+};
+
+
+
 // MENUS
 
 let notificationMenu = false;
