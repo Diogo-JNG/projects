@@ -9,16 +9,15 @@ body{
 }
 .container{
     width: 100%;
-    min-width: 100vw;
 }
 .container__images{
     display: flex;
     position: relative;
+    width: 100%;
 }
-.container__images img{
-    object-fit: cover;
-    max-width: 100vw;
-    width: 100vw;
+.slider__image{
+    object-fit: 100% 100%;
+    width: 50%;
     height: 500px;
 }
 .slider__left, .slider__right{
@@ -49,7 +48,6 @@ body{
     display: flex;
     max-height: 400px;
     min-height: 400px;
-    gap: 10px;
 }
 .container__special{
     background-color: #b1aeae;
@@ -57,21 +55,20 @@ body{
 .section__image{
     display: flex;
     align-self: center;
-    width: 50%;
+    width: 100%;
 }
 .section__photo{
     margin: 0 auto;
     font-size: 300px;
     object-fit: cover;
     object-position: center center;
-    border-radius: 25px;
 }
 .section__info{
     color: black;
     display: flex;
     flex-direction: column;
-    min-width: 50%;
     width: 100%;
+    height: 100%;
     align-self: center;
 }
 .section__title{
@@ -97,6 +94,10 @@ body{
     transition: 250ms;
     cursor: pointer;
 }
+.section__button a{
+    text-decoration: none;
+    color: white;
+}
 .section__button:hover{
     padding: 20px;
 }
@@ -108,6 +109,9 @@ body{
     color: white;
 }
 .section__button:hover button{
+    color: darkgoldenrod;
+}
+.section__button:hover a{
     color: darkgoldenrod;
 }
 a:hover{
@@ -172,14 +176,14 @@ a:hover{
     .section__image{
         width: 100%;
     }
-    .section__button{
-        margin-bottom: 20px;
+    .slider__image{
+        width: 100%;
     }
     .icofont-file-document{
         margin-top: 20px;
     }
-    button{
-        padding: 20px;
+    button,.section__button a{
+        padding: 10px;
     }
     .section__title, .section__image{
         margin-top: 20px;
@@ -202,12 +206,20 @@ a:hover{
     }
     .section__photo{
         margin-top: 0;
+        font-size: 255px;
     }
   }
   @media only screen and (max-width: 575px) {
     .section__photo{
         max-width: 300px;
         max-height: 300px;
+        font-size: 195px;
+    }
+    button{
+        padding: 0px;
+    }
+    .section__description{
+        font-size: 17px;
     }
     .slider__left, .slider__right{
         top: 30%;
