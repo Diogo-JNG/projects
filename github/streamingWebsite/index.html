@@ -15,20 +15,24 @@
 
 <body>
     <header>
-        <div class="header__left">
-            <i class="icofont-navigation-menu main__menu"></i>
-            <h1 class="main__title">ShowTime</h1><i class="icofont-video main__icon"></i>
+        <div class="header__desktop">
+            <div class="header__left">
+                <i class="icofont-navigation-menu main__menu"></i>
+                <h1 class="main__title">ShowTime</h1><i class="icofont-video main__icon"></i>
+            </div>
+            <div class="header__center">
+                <input class="header__searchBar" type="text">
+                <i class="icofont-search normal__search"></i>
+            </div>
+            <div class="header__right">
+                <i class="icofont-notification header__notification"></i>
+                <i class="icofont-user header__profile"></i>
+            </div>
         </div>
-        <div class="header__center">
-            <input class="header__searchBar" type="text">
-            <i class="icofont-search normal__search"></i>
-        </div>
-        <div class="header__right">
-            <i class="icofont-notification header__notification"></i>
-            <i class="icofont-user header__profile"></i>
-        </div>
-        <div class="header__mini">
-            <input type="text" class="header__minisearchBar"><i class="icofont-search-2 mini__search"></i>
+        <div class="header__mobile">
+            <div class="header__mini">
+                <input type="text" class="header__minisearchBar"><i class="icofont-search-2 mini__search"></i>
+            </div>
         </div>
     </header>
     <aside id="aside">
@@ -59,28 +63,32 @@
         </div>
     </aside>
     <section class="aside__profile">
-    <div class="aside__profile__info">
-        <img class="profile__picture" src="assets/user.jpg" alt="Profile Picture">
-        <h2 class="profile__name">Name</h2>
-    </div>
-    <hr>
-    <div class="aside__profile__list">
-        <ul>
-            <li>Settings</li>
-            <li>Sign In</li>
-        </ul>
+        <div class="aside__profile__info">
+            <img class="profile__picture" src="assets/user.jpg" alt="Profile Picture">
+            <h2 class="profile__name">Name</h2>
+        </div>
+        <hr>
+        <div class="aside__profile__list">
+            <ul>
+                <li>Settings</li>
+                <li>Sign In</li>
+            </ul>
 
-    </div>
+        </div>
     </section>
     <section class="aside__notification">
         <p>Looks like you don't have any notifications yet <i class="icofont-sad"></i></p>
     </section>
     <main id="main">
         <div class="video__list" id="list__random">
-            <div class="recommend__tab"><p>Random <i class="icofont-dice"></i></p></div>
+            <div class="recommend__tab">
+                <p>Random <i class="icofont-dice"></i></p>
+            </div>
         </div>
         <div class="video__list" id="list__cars">
-            <div class="recommend__tab"><p>Cars <i class="icofont-car-alt-3"></i></p></div>
+            <div class="recommend__tab">
+                <p>Cars <i class="icofont-car-alt-3"></i></p>
+            </div>
         </div>
         <div class="video__modal">
             <i class="icofont-close"></i>
@@ -88,4 +96,5 @@
     </main>
     <script src="js/main.js"></script>
 </body>
+
 </html>
