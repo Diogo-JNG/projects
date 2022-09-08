@@ -1,6 +1,19 @@
 const aside = document.getElementById('aside');
 const main = document.getElementById('main');
 
+// Search Input
+
+let categories = [];
+
+categories = document.querySelectorAll(('.video__list'));
+console.log(categories);
+
+const searchInput = document.querySelector('.header__searchBar');
+
+searchInput.addEventListener('input', (e) => {
+  const value = e.target.value;
+})
+
 // Create Video Boxes Loop
 
 const randomVideoData = [
@@ -98,6 +111,7 @@ function randomVideoBoxes(info) {
   const videoList = document.getElementById('list__random');
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video__container');
+  videoContainer.setAttribute('id', 'random');
   videoList.append(videoContainer);
   videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
   <div class="video__info">
@@ -110,6 +124,7 @@ function carVideoBoxes(info) {
   const videoList = document.getElementById('list__cars');
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video__container');
+  videoContainer.setAttribute('id', 'cars');
   videoList.append(videoContainer);
   videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
   <div class="video__info">
