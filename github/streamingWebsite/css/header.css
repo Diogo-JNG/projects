@@ -62,7 +62,7 @@ header i{
     width: 60%;
     height: 40px;
     font-size: 25px;
-    
+    padding-left: 10px;
 }
 .header__minisearchBar{
     width: 95%;
