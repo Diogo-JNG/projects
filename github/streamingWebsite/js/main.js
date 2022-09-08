@@ -155,10 +155,10 @@ videoThumb.forEach((e) => {
 const videoModal = document.querySelector('.video__modal');
 const videoClose = document.querySelector('.video__modal i');
 
-videoThumb.forEach((e) => { e.addEventListener('click', openVideo)});
+videoThumb.forEach((e) => { e.addEventListener('click', openVideo) });
 videoClose.addEventListener('click', modalClose);
 
-function openVideo(e){
+function openVideo(e) {
   let videoToCopy = e.srcElement.src;
   let newVideoBox = document.createElement('video');
   newVideoBox.setAttribute('controls', 'controls');
@@ -167,7 +167,7 @@ function openVideo(e){
   videoModal.append(newVideoBox);
 };
 
-function modalClose(){
+function modalClose() {
   const videoBox = document.querySelector('.video__modal video');
   videoBox.remove();
   videoModal.classList.toggle('video__modal__visible');
@@ -198,25 +198,27 @@ function menuToggle() {
 function profileToggle() {
   profileMenu = !profileMenu;
   asideProfile.classList.toggle('aside__profile__visible');
+  checkMenuPosition();
 }
 
 function notificationToggle() {
   notificationMenu = !notificationMenu;
   asideNotification.classList.toggle('aside__notification__visible');
+  checkMenuPosition();
+}
 
-  // Menu Position Adjustment
+// Menu Position Adjustment
 
- setInterval(checkMenuPosition, 500);
+setInterval(checkMenuPosition, 500);
 
-  function checkMenuPosition() {
-    if (profileMenu) {
-      asideNotification.style.top = '200px';
-    } else {
-      asideNotification.style.top = '0px';
-    }
+function checkMenuPosition() {
+  if (profileMenu) {
+    asideNotification.style.top = '200px';
+  } else {
+    asideNotification.style.top = '0px';
   }
 }
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  menuToggle();
-}
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    menuToggle();
+  }

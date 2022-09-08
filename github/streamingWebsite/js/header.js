@@ -25,6 +25,7 @@ let isToggled = false;
 function toggleSearchBar(){
 
     isToggled = !isToggled;
+    updateSearchBar();
 
 }
 
