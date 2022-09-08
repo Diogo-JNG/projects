@@ -95,6 +95,9 @@ main{
 .video__modal__visible{
     display: flex;
 }
+.hidden{
+    display: none;
+}
 .video__modal video{
     width: 60vw;
 }

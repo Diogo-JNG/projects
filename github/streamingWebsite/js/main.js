@@ -5,14 +5,47 @@ const main = document.getElementById('main');
 
 let categories = [];
 
-categories = document.querySelectorAll(('.video__list'));
-console.log(categories);
+//const videoContainers = document.querySelectorAll('.video__container');
+
+//const containerID = videoContainers.forEach(e => e.getAttribute('id'));
+
+// console.log(videoContainers);
 
 const searchInput = document.querySelector('.header__searchBar');
 
 searchInput.addEventListener('input', (e) => {
-  const value = e.target.value;
-})
+  const value = e.target.value.toLowerCase();
+
+
+  if (value != '') {
+
+    // let searchTarget = document.querySelectorAll(`[data-type=${value}]`);
+
+    // searchTarget.forEach((e) => (e.classList.toggle('hidden')));
+  }
+}
+)
+
+setInterval(() => {
+  let value = document.querySelector('.header__searchBar').value.toLowerCase();
+  let otherContainers = document.querySelectorAll('.video__container');
+
+  otherContainers.forEach(e => {
+    if (e.attributes != `data-type="${value}"` && value != ''){
+      e.classList.add('hidden');
+    }else{
+      e.classList.remove('hidden');
+    }
+  })
+
+  if (value != ''){
+    let searchTarget = document.querySelectorAll(`[data-type=${value}]`);
+  
+    searchTarget.forEach((e) => {
+      e.classList.toggle('hidden');
+    })
+  }
+}, 500);
 
 // Create Video Boxes Loop
 
@@ -111,7 +144,7 @@ function randomVideoBoxes(info) {
   const videoList = document.getElementById('list__random');
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video__container');
-  videoContainer.setAttribute('id', 'random');
+  videoContainer.setAttribute('data-type', 'random');
   videoList.append(videoContainer);
   videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
   <div class="video__info">
@@ -124,7 +157,7 @@ function carVideoBoxes(info) {
   const videoList = document.getElementById('list__cars');
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video__container');
-  videoContainer.setAttribute('id', 'cars');
+  videoContainer.setAttribute('data-type', 'cars');
   videoList.append(videoContainer);
   videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
   <div class="video__info">
@@ -219,6 +252,6 @@ function checkMenuPosition() {
   }
 }
 
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    menuToggle();
-  }
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  menuToggle();
+}
