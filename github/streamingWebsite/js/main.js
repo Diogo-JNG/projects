@@ -5,24 +5,11 @@ const main = document.getElementById('main');
 
 let categories = [];
 
-//const videoContainers = document.querySelectorAll('.video__container');
-
-//const containerID = videoContainers.forEach(e => e.getAttribute('id'));
-
-// console.log(videoContainers);
-
 const searchInput = document.querySelector('.header__searchBar');
 
 searchInput.addEventListener('input', (e) => {
   const value = e.target.value.toLowerCase();
 
-
-  if (value != '') {
-
-    // let searchTarget = document.querySelectorAll(`[data-type=${value}]`);
-
-    // searchTarget.forEach((e) => (e.classList.toggle('hidden')));
-  }
 }
 )
 
@@ -129,6 +116,85 @@ const carVideoData = [
     profileImage: 'assets/user.jpg',
     url: 'https://assets.mixkit.co/videos/preview/mixkit-accelerating-car-dashboard-64-large.mp4',
   },
+  {
+    name: 'Driving Morning',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-blonde-woman-driving-on-road-4521-large.mp4',
+  },
+  {
+    name: 'Red Sports Car',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-parked-red-sports-car-66-large.mp4',
+  },
+  {
+    name: 'Snowy Forest Road',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-curve-on-a-snowy-forest-road-3317-large.mp4',
+  },
+  {
+    name: 'White Sports Car',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-luxury-white-sports-car-in-the-highway-at-sunset-35540-large.mp4',
+  },
+  {
+    name: 'Sports Car Engine',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-closeup-of-sports-car-engine-65-large.mp4',
+  },
+
+]
+
+const foodVideoData = [
+  {
+    name: 'Fresh Fruit',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-rinsing-strawberries-apples-and-grapes-holding-hands-10434-large.mp4',
+  },
+  {
+    name: 'Eating Breakfast',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-girl-eating-salad-in-her-kitchen-dining-room-26085-large.mp4',
+  },
+  {
+    name: 'Healthy Breakfast',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-ingredients-for-a-healthy-breakfast-3795-large.mp4',
+  },
+  {
+    name: 'Cooking Omelet',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-woman-flipping-her-egg-omelet-42910-large.mp4',
+  },
+  {
+    name: 'Delicious Salad',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-eating-salad-with-a-fork-40521-large.mp4',
+  },
+  {
+    name: 'Cooking Chinese Food',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-cooking-asian-food-9286-large.mp4',
+  },
+  {
+    name: 'Hot Beef',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-cooking-roast-beef-slow-motion-18766-large.mp4',
+  },
+  {
+    name: 'Colorful Food',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-fresh-vegetables-on-a-wooden-board-close-up-view-10420-large.mp4',
+  },
+  {
+    name: 'Hot Tea',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-a-waiter-serves-coffee-to-a-customer-205-large.mp4',
+  },
+  {
+    name: 'Gourmet Burguer',
+    profileImage: 'assets/user.jpg',
+    url: 'https://assets.mixkit.co/videos/preview/mixkit-man-eating-a-hamburger-372-large.mp4',
+  },
 
 ]
 
@@ -138,6 +204,10 @@ for (let info of randomVideoData) {
 
 for (let info of carVideoData) {
   carVideoBoxes(info);
+}
+
+for (let info of foodVideoData) {
+  foodVideoBoxes(info);
 }
 
 function randomVideoBoxes(info) {
@@ -158,6 +228,19 @@ function carVideoBoxes(info) {
   const videoContainer = document.createElement('div');
   videoContainer.classList.add('video__container');
   videoContainer.setAttribute('data-type', 'cars');
+  videoList.append(videoContainer);
+  videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
+  <div class="video__info">
+      <img class="video__profile" src="${info.profileImage}" alt="Profile Picture">
+      <p>${info.name}</p>`;
+
+}
+
+function foodVideoBoxes(info) {
+  const videoList = document.getElementById('list__food');
+  const videoContainer = document.createElement('div');
+  videoContainer.classList.add('video__container');
+  videoContainer.setAttribute('data-type', 'food');
   videoList.append(videoContainer);
   videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
   <div class="video__info">
