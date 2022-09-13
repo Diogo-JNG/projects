@@ -15,8 +15,8 @@ header{
 }
 .main__icon{
     color: #FF0000;
-    margin-left: 5px;
-    font-size: 35px;
+    margin-left: 15px;
+    font-size: 40px;
 }
 header i{
     color: white;
@@ -30,7 +30,8 @@ header i{
 }
 .header__left h1{
     font-size: 30px;
-    margin-left: 15px;
+    margin-left: 5px;
+    padding-top: 5px;
     color: white;
 }
 .header__center{
@@ -40,7 +41,7 @@ header i{
     width: 100%;
 }
 .normal__search{
-    background-color: gray;
+    background-color: rgb(56, 55, 55);
     padding: 8px 20px;
     height: 40px;
 }

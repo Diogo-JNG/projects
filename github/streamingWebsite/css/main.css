@@ -16,6 +16,7 @@ main{
     height: 100%;
     padding-top: 10vh;
     padding-left: 10.5vw;
+    transition: 200ms;
 }
 .main__solo{
     padding-left: 0vw;
