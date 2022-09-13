@@ -11,7 +11,7 @@ const carVideoData = [
     url: 'https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4',
   },
   {
-    name: 'Drive N Cill',
+    name: 'Drive N Chill',
     profileImage: 'https://picsum.photos/40',
     url: 'https://assets.mixkit.co/videos/preview/mixkit-dashboard-of-a-car-72-large.mp4',
   },
@@ -114,57 +114,48 @@ const foodVideoData = [
 
 const randomVideoData = [
   {
-    name: 'Woman Dancing',
+    name: 'Random Video',
     profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-woman-cleaning-her-house-dancing-happy-43379-large.mp4',
   },
   {
-    name: 'Gamer Keyboard',
+    name: 'Random Video',
     profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-playing-on-a-computer-43527-large.mp4',
   },
   {
-    name: 'Old Radio',
+    name: 'Random Video',
     profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-putting-music-on-an-old-radio-43374-large.mp4',
   },
   {
-    name: 'Campfire',
+    name: 'Random Video',
     profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-people-pouring-a-warm-drink-around-a-campfire-513-large.mp4',
   },
   {
-    name: 'Fireworks on a beach',
+    name: 'Random Video',
     profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-fireworks-illuminating-the-beach-sky-4157-large.mp4',
   },
-  {
-    name: 'Waves coming to the beach',
-    profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-waves-coming-to-the-beach-5016-large.mp4',
-  },
-  {
-    name: 'Watering the plants',
-    profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-young-woman-dancing-while-watering-her-plants-43378-large.mp4',
-  },
-  {
-    name: 'Landscape of mountains',
-    profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-sunset-3128-large.mp4',
-  },
-  {
-    name: 'Rainy Night',
-    profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-traffic-on-a-rainy-night-4331-large.mp4',
-  },
-  {
-    name: 'Curvy Road',
-    profileImage: 'https://picsum.photos/40',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-curvy-road-on-a-tree-covered-hill-41537-large.mp4',
-  },
-
 ]
+
+const randomVideos = [
+'https://assets.mixkit.co/videos/preview/mixkit-woman-cleaning-her-house-dancing-happy-43379-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-playing-on-a-computer-43527-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-putting-music-on-an-old-radio-43374-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-people-pouring-a-warm-drink-around-a-campfire-513-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-fireworks-illuminating-the-beach-sky-4157-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-waves-coming-to-the-beach-5016-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-sunset-3128-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-traffic-on-a-rainy-night-4331-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-curvy-road-on-a-tree-covered-hill-41537-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-talented-freestyle-soccer-player-juggling-the-ball-43519-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-several-gamers-playing-on-computers-43541-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-dog-catches-a-ball-in-a-river-1494-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-white-tiger-resting-in-the-woods-6803-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-bartender-serving-beer-from-a-tap-in-a-glass-in-8710-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-female-inspector-checking-beer-production-33005-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-landscape-of-a-mountain-range-4366-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-traveling-through-a-tunnel-of-black-cubes-in-3d-31497-large.mp4',
+'https://assets.mixkit.co/videos/preview/mixkit-multicolored-coral-shot-with-fish-projections-4020-large.mp4',
+]
+
 
 for (let info of randomVideoData) {
   randomVideoBoxes(info);
@@ -184,7 +175,7 @@ function randomVideoBoxes(info) {
   videoContainer.classList.add('video__container');
   videoContainer.setAttribute('data-type', 'random');
   videoList.append(videoContainer);
-  videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${info.url}"></video>
+  videoContainer.innerHTML = `<video muted class="video__pre" loop  type="video/mp4" src="${randomVideos[Math.floor(Math.random()*randomVideos.length)]}"></video>
   <div class="video__info">
       <img class="video__profile" src="${info.profileImage}" alt="Profile Picture">
       <p>${info.name}</p>`;
