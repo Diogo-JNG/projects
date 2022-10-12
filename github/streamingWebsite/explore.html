@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/common/aside.css">
     <link rel="stylesheet" href="css/common/header.css">
     <link rel="stylesheet" href="css/common/footer.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/explore.css">
     <title>ShowTime</title>
 </head>
 
@@ -24,24 +24,26 @@
             </div>
             <div class="header__center">
                 <input class="header__searchBar" placeholder="Search..." type="search">
-                <i class="icofont-search normal__search"></i>
+                <a href="index.html"><i class="icofont-search normal__search"></i></a>
             </div>
             <div class="header__right">
-                <i class="icofont-search mini__search"></i>
+                <a href="index.html"><i class="icofont-search mini__search"></i></a>
                 <i class="icofont-notification header__notification"></i>
                 <i class="icofont-user header__profile"></i>
             </div>
         </div>
     </header>
     <aside id="aside">
-        <div class="aside__options aside__selected">
-            <i class="icofont-home aside__content"></i>
-            <p class="aside__content">Home</p>
-        </div>
+        <a href="index.html">
             <div class="aside__options">
-                    <i class="icofont-compass aside__content"></i>
-                    <p class="aside__content">Explore</p>
+                <i class="icofont-home aside__content"></i>
+                <p class="aside__content">Home</p>
             </div>
+        </a>
+        <div class="aside__options aside__selected">
+            <i class="icofont-compass aside__content"></i>
+            <p class="aside__content">Explore</p>
+        </div>
         <div class="aside__options">
             <i class="icofont-library aside__content"></i>
             <p class="aside__content">Library</p>
@@ -68,8 +70,8 @@
         <hr>
         <div class="aside__profile__list">
             <ul>
-                <li>Mode: <i class="icofont-sun-alt"> <i class="icofont-moon"></i></i></li>
-                <li><a href="login.html">Sign In</a></li>
+                <li>Settings</li>
+                <li>Sign In</li>
             </ul>
 
         </div>
@@ -78,23 +80,8 @@
         <p>Looks like you don't have any notifications yet <i class="icofont-sad"></i></p>
     </section>
     <main id="main">
-        <div class="video__list" id="list__random">
-            <div class="recommend__tab">
-                <p><i class="icofont-dice"></i> Random</p>
-            </div>
-        </div>
-        <div class="video__list" id="list__cars">
-            <div class="recommend__tab">
-                <p><i class="icofont-car-alt-3"></i> Cars</p>
-            </div>
-        </div>
-        <div class="video__list" id="list__food">
-            <div class="recommend__tab">
-                <p><i class="icofont-food-basket"></i> Food</p>
-            </div>
-        </div>
-        <div class="video__modal">
-            <i class="icofont-close"></i>
+        <div class="main__container">
+           <p>Sorry, work in progress <i class="icofont-hammer-alt"></i>.</p>
         </div>
     </main>
     <script src="js/main.js"></script>

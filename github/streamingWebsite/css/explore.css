@@ -1,0 +1,9 @@
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1800px) {
+    .main__container p{
+        padding: 0 40px;
+        font-size: 35px;
+    }
+}

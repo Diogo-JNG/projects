@@ -1,26 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Mukta', sans-serif;
-}
-i, .main__title{
-    cursor: pointer;
-}
-body{
-    background-color: rgb(56, 55, 55);
-    margin-bottom: 20px;
-}
-main{
-    max-width: 100vw;
-    height: 100%;
-    padding-top: 10vh;
-    padding-left: 10.5vw;
-    transition: 200ms;
-}
-.main__solo{
-    padding-left: 0vw;
-}
 .video__list{
     display: grid;
     grid-template-columns: repeat(5,1fr);
@@ -119,12 +96,7 @@ main{
 }
 /* RESPONSIVE */
 
-@media only screen and (max-width: 1800px) {
-    main{
-        padding-left: 0vw;
-    }
-    
-}
+
 @media only screen and (max-width: 1400px) {
     .video__list{
         grid-template-columns: repeat(4,1fr);

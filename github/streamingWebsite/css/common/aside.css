@@ -72,6 +72,9 @@ aside{
     margin-left:20px;
     font-size: 20px;
 }
+.aside__profile__list li a{
+    color: white;
+}
 .aside__profile img{
     margin-left: 20px;
     border-radius: 25px;
@@ -105,6 +108,9 @@ aside hr{
 .aside__options p{
     font-size: 18px;
 }
+#aside a{
+    text-decoration: none;
+}
 .aside__options:hover{
     background-color: gray;
 }
@@ -122,6 +128,12 @@ aside hr{
 @media only screen and (max-width: 500px) {
     .aside__profile, .aside__notification{
         width: 40vw;
+    }
+    aside{
+        transform: translateX(-100%);
+    }
+    .aside__hidden{
+        transform: translateX(0);
     }
 
 }

@@ -1,5 +1,5 @@
-// Query Selectors || Media Queries
 
+// Query Selectors || Media Queries
 const searchIcon = document.querySelector('.normal__search');
 const searchBar = document.querySelector('.header__searchBar');
 const mainTitle = document.querySelector('.main__title');
@@ -121,8 +121,4 @@ function checkMenuPosition() {
   } else {
     asideNotification.style.top = '0px';
   }
-}
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  menuToggle();
 }

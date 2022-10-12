@@ -2,11 +2,13 @@ header{
     z-index: 100;
     display: block;
     position: fixed;
-    align-items: center;
-    justify-content: space-between;
     font-size: 25px;
+    height: 10vh;
     width: 100%;
     background-color: rgba(26, 25, 25, .9);
+}
+a{
+    text-decoration: none;
 }
 .header__desktop{
     display: flex;
