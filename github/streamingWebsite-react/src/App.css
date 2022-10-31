@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
+}
+i, .main__title{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+body{
+  background-color: rgb(56, 55, 55);
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+/* RESPONSIVE */
+
+
+
+@media only screen and (max-width: 400px) {
+  .recommend__tab{
+      grid-column: 1;
+      text-align: center;
+  }
+}

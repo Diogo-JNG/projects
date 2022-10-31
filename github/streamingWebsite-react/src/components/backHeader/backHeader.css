@@ -1,0 +1,10 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(26, 25, 25, .9);
+}
+.header__return{
+    font-size: 55px;
+    margin-left: 15px;
+}

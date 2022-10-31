@@ -1,0 +1,59 @@
+aside {
+    transform: translateX(0);
+    z-index: 100;
+    transition: 250ms;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 100%;
+    width: 200px;
+    background-color: rgba(26, 25, 25, .9);
+}
+
+.aside__hidden {
+    transform: translateX(-100%);
+}
+
+aside hr {
+    background-color: gray;
+}
+
+.aside__options {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 25, 25, .9);
+    height: 40px;
+    transition: 250ms;
+}
+
+.aside__options i {
+    position: absolute;
+    left: 10px;
+    top: 5;
+}
+
+.aside__options p {
+    font-size: 18px;
+}
+
+#aside a {
+    text-decoration: none;
+}
+
+.aside__options:hover {
+    background-color: gray;
+}
+
+.aside__content {
+    color: white;
+    font-size: 20px;
+    padding: 0 3px;
+}
+
+.aside__selected {
+    background-color: gray
+}
