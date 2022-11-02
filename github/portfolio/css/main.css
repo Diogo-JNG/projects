@@ -5,7 +5,34 @@
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background-color: white
+    background-color: #c3c3c3;
+}
+.projects__container{
+    width: 100%;
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.projects__container h1{
+    font-size: 55px;
+}
+.projects__list{
+    display: flex;
+    gap: 50px;
+    margin-top: 150px;
+    list-style: none;
+}
+.projects__list li{
+    font-size: 35px;
+}
+.projects__list li:hover{
+    transition: 250ms;
+    font-size: 45px;
+}
+.projects__list a{
+    text-decoration: none;
+    color: rgb(37, 37, 37);
 }
 .container{
     width: 100%;
@@ -207,6 +234,24 @@ a:hover{
     .section__photo{
         margin-top: 0;
         font-size: 255px;
+    }
+    .projects__container{
+        padding-top: 10vh;
+    }
+    .projects__container h1{
+        font-size: 40px;
+    }
+    .projects__list{
+        flex-direction: column;
+        margin-top: 30px;
+        text-align: center;
+        gap: 20px
+    }
+    .projects__list a{
+        font-size: 25px;
+    }
+    .projects__list a:hover{
+        font-size: 30px;
     }
   }
   @media only screen and (max-width: 575px) {
