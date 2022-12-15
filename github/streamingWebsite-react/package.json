@@ -1,5 +1,6 @@
 {
   "name": "streaming-website-react",
+  "homepage":"https://diogodev.pt",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
