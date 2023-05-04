@@ -1,0 +1,19 @@
+<%- include('./partials/head.ejs') %>
+    <%- include('./partials/header.ejs') %>
+    <% if (user.email === 'admin@email.com') { %>
+        <form action="/" method='post'>
+            <div class="nblog__container">
+                <div>
+                    <label for="ntitle">New blog title</label>
+                    <input required name="title" id="ntitle" type="text" placeholder="New windows update">
+                    <label for="nbody">New blog body</label>
+                    <textarea required name="body" id="nbody" cols="30" rows="5"
+                        placeholder="New windows update was release and brings many new features you may want to use daily."></textarea>
+                </div>
+                <div>
+                        <input value="Submit" type="submit">
+                </div>
+            </div>
+        </form>
+        <% } %>
+        <%- include('./partials/footer.ejs') %>

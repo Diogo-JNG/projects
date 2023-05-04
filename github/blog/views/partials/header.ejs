@@ -1,0 +1,20 @@
+<body>
+<header>
+    <h1 class="header__title">
+    <a href="/">Beep Web</a>
+    </h1>
+    <% if (user) { %>
+    <p>Welcome, <%= user.name %>!</p>
+    <% } %>
+    <div class="header__buttons">
+        <% if (!user) { %>
+            <span class="click unstyled__click"><a href="/login">Login</a></span>
+            <span>|</span>
+            <span class="click unstyled__click"><a href="/register">Register</a></span>
+            <% } %>
+        <% if (user) { %>
+            <span class="click unstyled__click"><a href="/logout">Logout</a></span>
+            <% } %>
+    </div>
+</header>
+<main>

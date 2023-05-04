@@ -1,0 +1,21 @@
+
+    <%- include('./partials/head.ejs') %>
+    <%- include('./partials/header.ejs') %>
+        <div class="main__container">
+                <% blogs.forEach(blog => { %>
+            <div class="main__post">
+                <div>
+                    <h2><%= blog.title %></h2>
+                    <p><%= blog.body %></p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <a href="/blogs/<%= blog._id %>">
+                        <button class="click"> Read More</button>
+                    </a>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    <%- include('./partials/footer.ejs') %>
+

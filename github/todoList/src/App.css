@@ -1,0 +1,157 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: #CACAAA;
+}
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  background-color: #55868C;
+  box-shadow: 0px 3px 8px black ;
+}
+.header__name{
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  height: 80%;
+  width: 90%;
+}
+.header__edit{
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+}
+.header__edit:hover{
+  color: yellow;
+}
+.name__input{
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+}
+.name__submit{
+  height: 40px;
+  width: 50px;
+  font-size: 20px;
+}
+div > input, textarea{
+  padding: 5px 5px;
+  font-size: 15px;
+}
+main{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.list__adder{
+  color: #7F636E;
+  cursor: pointer;
+  margin-top: 50px;
+  font-size: 62px;
+}
+#list_title{
+  text-align: center;
+}
+.list__container{
+  position: relative;
+  border-radius: 25px;
+  margin-top: 50px;
+  background-color: #55868C;
+  height: 500px;
+  width: 450px;
+}
+.list__creater{
+  position: relative;
+  border-radius: 25px;
+  margin-top: 50px;
+  background-color: #55868C;
+  height: 500px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+.list__creater__header{
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+.list__creater__main{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.list__creater__footer{
+  display: flex;
+  justify-content: center;
+}
+.list__creater__footer input{
+  text-align: center;
+}
+.list__creater__buttons{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: row;
+  width: 100%;
+}
+.list__creater__buttons button{
+  width: 150px;
+  height: 100px;
+
+}
+.list__header{
+  border-bottom: 2px solid black;
+  height: 15%;
+}
+.list__close{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
+.list__edit{
+  position: absolute;
+  cursor: pointer;
+  right: 40px;
+  top: 10px;
+  font-size: 20px;
+  color: rgb(221, 182, 10);
+}
+.list__title{
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+  height: 15%;
+}
+.list_textarea{
+  resize: none;
+}
+.list__main{
+  padding: 30px;
+  text-align: left;
+  height: 70%;
+}
+.list__footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 2px solid black;
+  height: 15%;
+}
+.list__footer__sep{
+  margin:0 5px;
+}
+.name__input{
+  margin-left: 5px;
+  padding-left: 10px;
+}

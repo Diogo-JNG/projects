@@ -1,0 +1,28 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
+<div class="details__title">
+    <h2>Blog title:</h2>
+    <p><%= blog.title %></p>
+    <div class="details__body">
+      <h3>Blog Body:</h3>
+      <p><%= blog.body %></p>
+      <% if (user.email == 'admin@email.com') { %>
+        <button class="delete" data-doc="<%= blog._id  %>">Delete Blog</button>
+        <% } %>
+    </div>
+  </div>
+<%- include('./partials/footer.ejs') %>
+
+<script>
+  const delbutton = document.querySelector('.details__body button');
+
+  delbutton.addEventListener('click',(e)=>{
+    const endpoint = `/blogs/${delbutton.dataset.doc}`;
+
+    fetch(endpoint,{
+      method : 'DELETE'
+    })
+    .then((response)=> response.json())
+    .then((data) => window.location.href = data.redirect)
+  })
+</script>
