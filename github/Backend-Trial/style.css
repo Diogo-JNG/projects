@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.center{
+    text-align: center;
+    margin-bottom: 50px;
+}
+form{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+form input{
+    height: 30px;
+    width: 300px;
+}
+.center__table{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    flex-direction: column;
+    align-items: center; 
+}
+.center__table p{
+    width: 100%;
+    color: yellow;
+    justify-content: flex-start;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 250ms;
+}
+table{
+    border: 2px solid #FBB13C;
+}
+table tr{
+    background-color: black;
+    color: white;
+}
+th,td{
+    border: 1px solid white;
+    width: 100px;
+}
+body{
+    background-color: #eceaea;
+}
+header {
+    width: 100%;
+    background-color: #eceaea;
+    border-bottom: 1px solid gray;
+    height: 10vh;
+}
+
+.header__nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    font-size: x-large;
+}
+
+.header__nav__title {
+    padding-left: 100px;
+    width: 50vw;
+}
+
+.header__nav__title p {
+    font-size: 18px;
+    color: rgb(128, 127, 127);
+}
+
+.header__nav__links {
+    justify-content: flex-end;
+    padding-right: 100px;
+    gap: 20px;
+    display: flex;
+    width: 50vw;
+}
+
+.header__nav__links i {
+    display: none;
+    transition: 250ms;
+    rotate: 0deg;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.header__nav__links a:hover,.mobile__menu a:hover{
+    color: #FBB13C;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    height: 80vh;
+    background-color: #eceaea;
+}
+
+
+footer {
+    display: flex;
+    margin-top: 50px;
+    background-color: black;
+    height: 10vh;
+    width: 100%;
+    color: white;
+}
+
+.footer__title {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    padding-left: 300px;
+    width: 50%;
+    height: 100%;
+}
+
+.footer__links {
+    display: flex;
+    font-size: 16px;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 300px;
+    width: 50%;
+    height: 100%;
+}
+
+.footer__links__link {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    flex-direction: column;
+}
+
+
+/* RESPONSIVE DESIGN*/

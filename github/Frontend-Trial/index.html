@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharesolutions trial By Diogo Guimarães</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <meta name="description" content="A front-end trial by Diogo Guimarães">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header__main">
+        <nav class="header__nav">
+            <div class="header__nav__title">
+                <h1>Sharesolutions.io</h1>
+                <p>Trial by Diogo Guimarães</p>
+            </div>
+            <div class="header__nav__links">
+                <a href="#top">Home</a>
+                <a href="#cards">Highlights</a>
+                <a href="#contacts">Contacts</a>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        <i class="fa-solid fa-arrow-up hidden scrollBack"></i>
+        <div class="mobile__menu menu__hidden">
+            <a href="#main">Home</a>
+            <a href="#main">Highlights</a>
+            <a href="#contacts">Contacts</a>
+        </div>
+        <div id="top" class="main__masterhead">
+            <h2>Sharesolution.io</h2>
+            <p>Find everything about us here!</p>
+        </div>
+        <section id="cards" class="main__cards">
+            <div class="main__cards__normal">    
+                <i class="fa-solid fa-person"></i>
+                <h2>PEOPLE FRIENDLY</h2>
+                <p>No one likes to be excluded right?<br> Here everyone is welcome, we believe it is really important to respect everyone</p>                      
+            </div>
+            <div class="main__cards__main">    
+                <i class="fa-solid fa-briefcase"></i>    
+                <h2>GREAT ENVIRONMENT</h2>
+                <p>In the end of the day a company is like our second home, so we make sure you have the best time possible </p>                      
+            </div>
+            <div class="main__cards__normal">    
+                <i class="fa-solid fa-bolt"></i>
+                <h2>FAST DELIVERY</h2>
+                <p>Our job is to make it as fast as possible. We are a well structured team and we take the deliver dates very seriously</p>                      
+            </div>
+        </section>
+        <div class="main__aside">
+            <p>Contacts</p>
+        </div>
+        <section id="contacts" class="main__contacts">
+            <div class="main__contacts__info">
+                <h2>CONTACT US</h2>
+                <p>We are happy to answer any questions you may have!</p>
+                <form>
+                    <label for="name"><b>YOUR NAME (required)</b></label>
+                    <input required id="name" type="text">
+                    <label for="email"><b>YOUR EMAIL (required)</b></label>
+                    <input required id="email" type="email">
+                    <label for="subject"><b>SUBJECT (optional)</b></label>
+                    <input id="subject" type="text">
+                    <label for="message"><b>YOUR MESSAGE (required)</b></label>
+                    <textarea required name="" id="message" cols="30" rows="10"></textarea>
+                    <input type="submit" value="SEND">
+                </form>
+            </div>
+            <div class="main__contacts__maps">
+                <h2>Come meet us!</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65021008.473903246!2d-15.10354045971832!3d5.916199018982625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040050daf777f9%3A0xbeca1de85846fc87!2sGoogle%20Hong%20Kong!5e0!3m2!1sen!2spt!4v1690579739497!5m2!1sen!2spt"
+                    width="600" height="450" style="border:0;" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="main__contacts__contacts">
+                    <p>Email: emailexample@example.com</p>
+                    <p>Phone: +351 919 XXX 362</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer__title">
+            Sharesolutions.io
+        </div>
+        <div class="footer__links">
+            <div class="footer__links__link">
+            <a href="#top">Home</a>
+            <a href="#cards">Highlights</a>
+            <a href="#contacts">Contacts</a>
+        </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
+<!--
+1. Build a Responsive Landing Page without Bootstrap or any other 
+CSS framework.
+2. Landing Page Checklist:
+a. Sections:
+i. Masthead (title and headline)
+ii. 3 Highlight Cards
+iii. Contacts with Google Maps
+iv. Footer
+b. Scripting
+i. Back to top Button as a jQuery plugin
+c. Desktop:
+i. Fixed on Scroll Horizontal Top Menu
+(Home – Highlights – Contacts)
+ii. Full-width Masthead
+d. Mobile:
+i. Burguer Icon triggered Menu
+ii. Piled Cards
+
+Palette: https://coolors.co/fcfcfc-433e3f-fbb13c-629460-5da9e9
+-->
