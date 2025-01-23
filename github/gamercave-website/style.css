@@ -1,0 +1,225 @@
+/* VARIABLES */
+:root {
+    --black: #000000;
+    --grey: #1D1E2C;
+    --orange: #F85E00;
+    --white: #E8E8E8;
+    --link: #3993DD;
+    --red: #9A031E;
+  }
+
+  /* Css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--black);
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url(images/background-blur.jpg);
+    background-repeat: repeat ;
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    position: relative;
+
+    .header-logo.large{
+        width: 248px;
+    }
+    .header-logo.small{
+        width: 124px;
+    }
+    .header-logo{
+        border-radius: 50px;
+        margin-top: 20px;
+        height: auto;
+        &:hover{
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+    .header-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        list-style: none;
+        .header-links__link a{
+            text-decoration: none;
+        }
+        .header-links__link a img{
+            width: 36px;
+            height: auto;
+            &:hover{
+                opacity: .5;
+            }
+        
+        }
+    }
+}
+.container{
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+
+    .main-container{
+        width: 100%;
+        max-width: 1000px;
+        @media only screen and (min-width: 1088px) {
+        
+        }
+        @media only screen and (min-width: 1450px) {
+            
+        }
+    }
+    /*Games Index*/
+    .games-container{
+        .container-title{
+            background: linear-gradient(90deg, rgba(70,8,98,1) 0%, rgba(121,9,115,1) 35%, rgba(50,57,187,1) 65%, rgba(0,212,255,1) 100%);
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            margin: 0 20px;
+            border-radius: 15px;
+        }
+        .container-box-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            .box-item.madlab{
+                background-image: url('assets/madlabthumb01.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .box-item{
+                cursor: pointer;
+                max-width: 286px;
+                width: 100%;
+                height: 286px;
+                border-radius: 25px;
+                background-color: rgb(34, 34, 34);
+                text-decoration: none;
+
+                .item-wip{
+                    text-align: center;
+                    color: white;
+                }
+                &:hover{
+                    border: 2px solid rgb(24, 100, 187);
+                    transform: scale(1.2);
+                    transition: 250ms;
+                }
+                .box-item__img{
+                    width: 100%;
+                    max-width: 286px;
+                    height: 143px;
+                    border-radius:25px;
+                }
+                .box-item__tags{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    border-radius: 25px;
+                    margin: 0 5px;
+                    .box-item__tag{
+                        background-color: rgb(155, 23, 160);
+                        border-radius: 50px;
+                        padding: 5px;
+                        color: white;
+                    }
+                }
+                .box-item__title{
+                    color: white;
+                    font-size: 2rem;
+                    text-align: left;
+                    margin-top: 30px;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+    /*Game individual*/
+    .game-container{
+        border-radius: 25px;
+        padding: 20px;
+        margin-top: 20px;
+        background: linear-gradient(90deg, rgba(70,8,98,1) 0%, rgba(121,9,115,1) 35%, rgba(50,57,187,1) 65%, rgba(0,212,255,1) 100%);
+        @media only screen and (max-width: 600px) {
+            margin: 20px;
+          }
+        .box-wrapper{
+            display: flex;
+            gap: 20px;
+            @media only screen and (max-width: 600px) {
+                flex-direction: column;
+              }
+            .box-wrapper-item{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .box-item__tags{
+                    display: flex;
+                    gap: 5px;
+                    .box-item__tag{
+                        background-color: rgb(155, 23, 160);
+                            border-radius: 50px;
+                            padding: 5px;
+                            color: white;
+                    }
+                }
+                .box-item__img{
+                    border-radius: 25px;
+                    max-width: 286px;
+                }
+                .box-item__title{
+                    color: white;
+                    font-size: 2rem;
+                    text-align: left;
+                }
+                .box-item__description{
+                    color: white;
+                    font-size: 1.2rem;
+                }
+                .box-item__downloads{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 20px;
+                    gap: 50px;
+
+                    a{
+                        &:hover{
+                            opacity: .8;
+                        }
+                        .box-item__download{
+                            @media only screen and (max-width: 600px) {
+                                max-width: 130px;
+                              }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+}
+
+ /*Animations */
+
+
