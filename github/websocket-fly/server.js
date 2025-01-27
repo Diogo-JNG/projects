@@ -25,7 +25,7 @@ setInterval(clearIPList, 10000);
 
 // Log current IP list every 3 seconds
 setInterval(() => {
-  // console.log("Current IP List:", ipList);
+ // console.log("Current IP List:", ipList);
 }, 3000);
 
 wss.on('connection', (ws) => {
