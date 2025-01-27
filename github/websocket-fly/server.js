@@ -6,19 +6,38 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
+const HEARTBEAT_INTERVAL = 30000; // 30 seconds
+
 let ipList = [];
 
 // Function to clear the IP list
 function clearIPList() {
   ipList = [];
+  ws.send('UpdateCheck');
   console.log("IP list cleared");
 }
 
-// Set interval to clear the list every 5 seconds
+function heartbeat() {
+  this.isAlive = true;
+}
+
+// Set interval to clear the list every 10 seconds
 setInterval(clearIPList, 10000);
+
+// Add an interval to check client connections
+const interval = setInterval(() => {
+  wss.clients.forEach((ws) => {
+    if (ws.isAlive === false) return ws.terminate();
+    
+    ws.isAlive = false;
+    ws.ping(() => {});
+  });
+}, HEARTBEAT_INTERVAL);
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
+  ws.isAlive = true;
+  ws.on('pong', heartbeat);
 
   ws.on('message', (message) => {
    // Convert buffer to string if it's a buffer
@@ -59,6 +78,7 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => {
     console.log('Client disconnected');
+    clearInterval(interval);
   });
 });
 
