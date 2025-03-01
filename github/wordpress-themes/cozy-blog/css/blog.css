@@ -1,91 +1,229 @@
-.blog{
- .blog-sub-title{
+.blog {
+  .blog-sub-title {
     font-size: 22px;
     margin: 0;
     margin-bottom: 20px;
- }
+  }
 
-.post-container{
+  .post-container {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+
     @media screen and (min-width: 769px) {
       justify-content: flex-start;
     }
-}
-.single-post{
+  }
+
+  .single-post {
     display: flex;
     flex-direction: column;
     max-width: 300px;
     min-height: 250px;
-    img{
-        width: 100%;
-        max-width: 300px;
-        height: 100%;
-        max-height: 200px;
-        border: 1px solid lightgray;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: 100%;
+      max-height: 200px;
+      border: 1px solid lightgray;
     }
-    .single-post-title{
-        font-size: 16px;
-        padding: 0 5px;
+
+    .single-post-title {
+      font-size: 16px;
+      padding: 0 5px;
     }
-    .single-post-date{
-        font-size: 14px;
-        padding: 0 5px;
+
+    .single-post-date {
+      font-size: 14px;
+      padding: 0 5px;
     }
-}
+  }
 }
 
 /*Modal*/
 
 .modal {
-    display: none; /* Inicialmente escondido */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    margin: 10px auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 95%;
-    max-width: 900px;
-    @media screen and (min-width: 769px) {
-      margin: 100px auto;
-      width: 80%;
-    }
-  }
-
-  #modalTitle{
-    font-size: 26px;
+  display: none;
+  /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fundo semitransparente */
 }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+
+.modal-content {
+  background-color: #fff;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 95%;
+  max-width: 1200px;
+
+  @media screen and (min-width: 769px) {
+    margin: 100px auto;
+    width: 80%;
+  }
+}
+
+#modalTitle {
+  font-size: 26px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#postModal img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  /* Espaço entre a imagem e o conteúdo */
+}
+
+/*Comentários */
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  padding: 20px;
+
+  .comments-title {
+    font-size: 26px;
     font-weight: bold;
   }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  input,textarea{
+    border: 1px solid gray;
   }
-  
-  #postModal img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 20px; /* Espaço entre a imagem e o conteúdo */
+  .reply{
+    display: none;
   }
-  
+  /* Estilo Geral da Lista de Comentários */
+.commentlist {
+  list-style: none; /* Remove os marcadores padrão */
+  padding: 0;
+  margin: 20px 0;
+}
+
+.commentlist li {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd; /* Borda ao redor do comentário */
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #f9f9f9; /* Fundo claro */
+}
+
+.commentlist li.depth-1 {
+  margin-left: 0; /* Comentários de primeiro nível alinhados à esquerda */
+}
+
+.commentlist li.depth-2 {
+  margin-left: 30px; /* Respostas recuadas */
+}
+
+.commentlist .comment-author {
+  font-weight: bold; /* Nome do autor em negrito */
+  margin-bottom: 5px;
+}
+
+.commentlist .comment-meta {
+  font-size: 12px; /* Texto menor para metadados */
+  color: #666; /* Cor cinza para data/hora */
+}
+
+.commentlist .comment-content {
+  margin-top: 10px;
+  line-height: 1.6; /* Melhor espaçamento entre linhas */
+}
+
+/* Avatar do Autor do Comentário */
+.commentlist .avatar {
+  float: left;
+  margin-right: 15px; /* Espaço entre o avatar e o texto */
+  border-radius: 50%; /* Avatar redondo */
+}
+
+/* Links de Resposta e Cancelar Resposta */
+.comment-reply-link,
+#cancel-comment-reply-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #0073aa; /* Azul padrão do WordPress */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.comment-reply-link:hover,
+#cancel-comment-reply-link:hover {
+  background-color: #005177; /* Azul mais escuro no hover */
+}
+
+/* Estilo do Formulário de Comentários */
+
+#respond h3 {
+  font-size: 18px;
+}
+
+#commentform textarea,
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"] {
+  width: 100%; /* Campos ocupam toda a largura disponível */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd; /* Borda clara */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+#commentform textarea {
+  height: 120px; /* Altura maior para o campo de texto do comentário */
+}
+
+#commentform input[type="submit"] {
+  background-color: #0073aa; /* Azul padrão do WordPress */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+#commentform input[type="submit"]:hover {
+  background-color: #005177; /* Azul mais escuro no hover */
+}
+
+.comment-form-cookies-consent{
+  margin-bottom: 15px;
+}
+.comment-form-url{
+  display: none;
+}
+
+/* Notas sobre Comentários (Ex.: campos obrigatórios) */
+.comment-notes,
+.form-allowed-tags {
+  font-size: 12px;
+  color: #666;
+}
+
+}
