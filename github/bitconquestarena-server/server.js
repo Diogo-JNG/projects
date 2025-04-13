@@ -175,6 +175,13 @@ wss.on('connection', (ws) => {
   });
 });
 
+process.on('SIGTERM', () => {
+  console.log('Recebido SIGTERM, encerrando servidor...');
+  wss.close();
+  server.close(() => process.exit(0));
+});
+
+
 server.listen(port, () => {
   console.log(`Servidor iniciado na porta ${port}`);
 });
