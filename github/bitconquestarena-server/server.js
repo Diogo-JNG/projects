@@ -135,7 +135,7 @@ wss.on('connection', (ws) => {
             x: data.x,
             y: data.y,
             angle: data.angle,
-            ownerId: playerId
+            id: playerId
           });
           break;
 
@@ -170,8 +170,18 @@ wss.on('connection', (ws) => {
   };
 
   ws.on('close', () => {
-    console.log(`Jogador desconectado: ${playerId}`);
-    if (players[playerId]) delete players[playerId];
+    console.log(`Jogador desconectado! ID do jogador:${playerId}`);
+    if (players[playerId]) {
+      const disconnectedPlayerName = players[playerId].name;
+      delete players[playerId];
+
+      // Notifica todos os clientes sobre a desconexão
+      broadcast({
+        type: 'player_disconnected',
+        id: playerId, // ID do jogador desconectado
+        name: disconnectedPlayerName // Nome do jogador desconectado
+      });
+    }
   });
 });
 
