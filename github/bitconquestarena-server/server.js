@@ -20,7 +20,6 @@ let players = {};
 let projectiles = {};
 
 wss.on('connection', (ws) => {
-  console.log("Novo jogador conectado!");
   let playerId = null;
 
   ws.on('message', (message) => {
@@ -44,6 +43,8 @@ wss.on('connection', (ws) => {
             active: true,
             timestamp: Date.now()
           };
+
+          console.log(`Novo jogador conectado! Total: ${Object.keys(players).length}`);
 
           ws.send(JSON.stringify({
             type: 'player_init',
@@ -170,10 +171,12 @@ wss.on('connection', (ws) => {
   };
 
   ws.on('close', () => {
-    console.log(`Jogador desconectado! ID do jogador:${playerId}`);
+    console.log(`Jogador desconectado! Total: ${Object.keys(players).length}`);
     if (players[playerId]) {
       const disconnectedPlayerName = players[playerId].name;
       delete players[playerId];
+
+      console.log(`Jogador desconectado! Total: ${Object.keys(players).length}`);
 
       // Notifica todos os clientes sobre a desconexão
       broadcast({
