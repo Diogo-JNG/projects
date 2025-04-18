@@ -3,198 +3,213 @@ const http = require('http');
 const { v4: uuidv4 } = require('uuid');
 
 const port = process.env.PORT || 8080;
+const MAX_PLAYERS_PER_ROOM = 2;
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/healthz') {
-    res.writeHead(200);
-    res.end('OK');
-  } else {
-    res.writeHead(404);
-    res.end('Not Found');
-  }
+  req.url === '/healthz' ? res.end('OK') : res.end('Not Found');
 });
 
 const wss = new WebSocket.Server({ server });
 
-let players = {};
-let projectiles = {};
+// Estrutura de gerenciamento de salas
+const lobby = {
+  rooms: new Map(),
+  findAvailableRoom() {
+    for (const [roomId, room] of this.rooms) {
+      if (room.players.size < MAX_PLAYERS_PER_ROOM) return roomId;
+    }
+    return this.createNewRoom();
+  },
+  createNewRoom() {
+    const roomId = uuidv4();
+    this.rooms.set(roomId, {
+      players: new Map(),
+      projectiles: new Map()
+    });
+    return roomId;
+  }
+};
 
 wss.on('connection', (ws) => {
-  let playerId = null;
+  ws.roomId = null; // Sala atual do cliente
+  let id = null;
 
   ws.on('message', (message) => {
     try {
       const data = JSON.parse(message);
 
+      // Variável room declarada aqui e atualizada conforme necessário
+      let room = ws.roomId && lobby.rooms.has(ws.roomId) ? lobby.rooms.get(ws.roomId) : null;
+
       switch (data.type) {
-        case 'request_id':
-          playerId = uuidv4();
-          players[playerId] = {
+        case 'join_game':
+          id = uuidv4();
+          ws.roomId = lobby.findAvailableRoom();
+          room = lobby.rooms.get(ws.roomId);
+
+          room.players.set(id, {
             x: 0,
             y: 0,
+            health: 100,
+            name: data.name,
+            class: data.class,
             animation: 'idle',
             weaponX: 0,
             weaponY: 0,
             weaponAngle: 0,
             weaponAnimation: 'idle',
-            name: data.name,
-            class: data.class,
-            health: 100,
-            active: true,
-            timestamp: Date.now()
-          };
-
-          console.log(`Novo jogador conectado! Total: ${Object.keys(players).length}`);
-
-          ws.send(JSON.stringify({
-            type: 'player_init',
-            id: playerId,
-            players: players,
-            class: data.class
-          }));
-
-          broadcastToOthers({
-            type: 'player_connected',
-            id: playerId,
-            x: 0,
-            y: 0,
-            animation: 'idle',
-            name: players[playerId].name,
-            class: players[playerId].class,
-            health: 100,
             active: true
           });
+
+          ws.send(JSON.stringify({
+            type: 'game_state',
+            roomId: ws.roomId,
+            id: id,
+            players: Object.fromEntries(room.players),
+            projectiles: Object.fromEntries(room.projectiles)
+          }));
+
+          broadcastToRoom(ws.roomId, {
+            type: 'player_connected',
+            id: id,
+            ...room.players.get(id)
+          }, ws);
           break;
 
-        case 'update':
-          if (!players[playerId]) return;
-
-          players[playerId] = {
-            ...players[playerId],
-            x: data.x,
-            y: data.y,
-            animation: data.animation,
-            weaponX: data.weaponX,
-            weaponY: data.weaponY,
-            weaponAngle: data.weaponAngle,
-            weaponAnimation: data.weaponAnimation,
-            health: data.health,
-            timestamp: Date.now()
-          };
-
-          broadcastToOthers({
-            type: 'player_update',
-            id: playerId,
-            x: data.x,
-            y: data.y,
-            animation: data.animation,
-            weaponX: data.weaponX,
-            weaponY: data.weaponY,
-            weaponAngle: data.weaponAngle,
-            weaponAnimation: data.weaponAnimation,
-            health: data.health
+        case 'damage_player':
+          if (!room) return;
+          broadcastToRoom(ws.roomId, {
+            type: 'player_damaged',
+            attackerId: id,
+            targetId: data.targetId,
+            damage: data.damage
           });
           break;
 
-        case 'heal_player': // ✅ Sistema de cura
-          if (players[data.targetId]) {
-            broadcast({
-              type: 'player_healed',
-              healerId: playerId,
-              targetId: data.targetId
+        case 'heal_player':
+          if (!room) return;
+          broadcastToRoom(ws.roomId, {
+            type: 'player_healed',
+            healerId: id,
+            targetId: data.targetId
+          });
+          break;
+
+        case 'player_update':
+          if (!room) return;
+          const player = room.players.get(id);
+
+          Object.assign(player, {
+            x: data.x,
+            y: data.y,
+            health: data.health,
+            animation: data.animation,
+            weaponX: data.weaponX,
+            weaponY: data.weaponY,
+            weaponAngle: data.weaponAngle,
+            weaponAnimation: data.weaponAnimation
+          });
+
+          broadcastToRoom(ws.roomId, {
+            type: 'player_updated',
+            id: id,
+            ...player
+          }, ws);
+          break;
+
+        case 'projectile_launch':
+          if (!room) return;
+          broadcastToRoom(ws.roomId, {
+            type: 'projectile_spawned',
+            x: data.x,
+            y: data.y,
+            angle: data.angle,
+            id: id
+          });
+          break;
+
+        case 'hide_request':
+          if (!room) return;
+          const hidePlayer = room.players.get(id);
+
+          if (hidePlayer?.active) {
+            hidePlayer.active = false;
+            broadcastToRoom(ws.roomId, {
+              type: 'player_hidden',
+              id: id
             });
           }
           break;
 
-        case 'hide_request':
-          if (players[playerId]?.active) {
-            players[playerId].active = false;
-            broadcast({ type: 'player_hidden', id: playerId });
-          }
-          break;
-
         case 'respawn_request':
-          if (players[playerId] && !players[playerId].active) {
-            players[playerId].active = true;
-            broadcast({ type: 'player_respawn', id: playerId });
+          if (!room) return;
+          const respawnPlayer = room.players.get(id);
+
+          if (respawnPlayer && !respawnPlayer.active) {
+            respawnPlayer.active = true;
+            respawnPlayer.health = 100;
+            broadcastToRoom(ws.roomId, {
+              type: 'player_respawned',
+              id: id,
+              ...respawnPlayer
+            });
           }
-          break;
-
-        case 'projectile_launch':
-          const projectileId = uuidv4();
-          projectiles[projectileId] = {
-            x: data.x,
-            y: data.y,
-            angle: data.angle,
-            id: playerId,
-            timestamp: Date.now()
-          };
-
-          broadcast({
-            type: 'projectile_spawn',
-            id: projectileId,
-            x: data.x,
-            y: data.y,
-            angle: data.angle,
-            id: playerId
-          });
           break;
 
         case 'chat_message':
-          broadcast({
+          if (!room) return;
+          broadcastToRoom(ws.roomId, {
             type: 'chat_message',
-            sender: players[playerId]?.name || "Desconhecido",
+            sender: room.players.get(id)?.name || "Desconhecido",
             message: data.message
-          });
+          }, ws);
           break;
       }
-
     } catch (error) {
       console.error("Erro ao processar mensagem:", error);
     }
   });
 
-  const broadcast = (message) => {
-    wss.clients.forEach(client => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(message));
-      }
-    });
-  };
-
-  const broadcastToOthers = (message) => {
-    wss.clients.forEach(client => {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(message));
-      }
-    });
-  };
-
   ws.on('close', () => {
-    console.log(`Jogador desconectado! Total: ${Object.keys(players).length}`);
-    if (players[playerId]) {
-      const disconnectedPlayerName = players[playerId].name;
-      delete players[playerId];
+    if (ws.roomId && lobby.rooms.has(ws.roomId)) {
+      const room = lobby.rooms.get(ws.roomId);
 
-      console.log(`Jogador desconectado! Total: ${Object.keys(players).length}`);
+      if (room.players.has(id)) {
+        room.players.delete(id);
+        broadcastToRoom(ws.roomId, {
+          type: 'player_disconnected',
+          id: id
+        });
+      }
 
-      // Notifica todos os clientes sobre a desconexão
-      broadcast({
-        type: 'player_disconnected',
-        id: playerId, // ID do jogador desconectado
-        name: disconnectedPlayerName // Nome do jogador desconectado
-      });
+      if (room.players.size === 0) {
+        lobby.rooms.delete(ws.roomId);
+        console.log(`Sala ${ws.roomId} removida por estar vazia`);
+      }
     }
   });
 });
 
+// Função de broadcast melhorada
+function broadcastToRoom(roomId, message, exceptWs = null) {
+  wss.clients.forEach(client => {
+    if (
+      client.readyState === WebSocket.OPEN &&
+      client.roomId === roomId &&
+      client !== exceptWs
+    ) {
+      client.send(JSON.stringify(message));
+    }
+  });
+}
+
+// Graceful shutdown para Fly.io
 process.on('SIGTERM', () => {
-  console.log('Recebido SIGTERM, encerrando servidor...');
+  console.log('Encerrando servidor...');
   wss.close();
   server.close(() => process.exit(0));
 });
 
-
 server.listen(port, () => {
-  console.log(`Servidor iniciado na porta ${port}`);
+  console.log(`🟢 Servidor operacional na porta ${port}`);
 });
